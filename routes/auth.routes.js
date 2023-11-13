@@ -11,7 +11,7 @@ router.get("/", (res) => {
 
 router.post("/signup", async (req, res) => {
   const salt = bcrypt.genSaltSync(13);
-  const passwordHash = bcrypt.hashSync(req.body.password, salt);
+  const passwordHash = bcrypt.hashSync(req.body.passwordHash, salt);
   try {
     const newUser = await User.create({ ...req.body, passwordHash });
     res.status(201).json(newUser);

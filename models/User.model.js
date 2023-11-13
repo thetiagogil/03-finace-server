@@ -7,10 +7,12 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+
     lastName: {
       type: String,
       required: true,
     },
+
     username: {
       type: String,
       required: true,
@@ -18,6 +20,7 @@ const userSchema = new Schema(
       lowercase: true,
       trim: true,
     },
+
     email: {
       type: String,
       required: true,
@@ -25,10 +28,12 @@ const userSchema = new Schema(
       lowercase: true,
       trim: true,
     },
+
     passwordHash: {
       type: String,
       required: true,
     },
+
     data: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -36,21 +41,11 @@ const userSchema = new Schema(
       },
     ],
   },
+
   {
     timestamps: true,
   }
 );
-
-// CAPITALIZE FIRST LETTER OF NAME
-userSchema.pre("save", function (next) {
-  this.firstName = capitalizeFirstLetter(this.firstName);
-  this.lastName = capitalizeFirstLetter(this.lastName);
-  next();
-});
-
-function capitalizeFirstLetter(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
 
 const User = model("User", userSchema);
 
