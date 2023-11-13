@@ -5,13 +5,13 @@ const { isAuthenticated } = require("../middlewares/routeGuard.middleware");
 
 const router = require("express").Router();
 
-router.get("/", (res) => {
+router.get("/", (req, res) => {
   res.json("All good in here");
 });
 
 router.post("/signup", async (req, res) => {
   const salt = bcrypt.genSaltSync(13);
-  const passwordHash = bcrypt.hashSync(req.body.passwordHash, salt);
+  const passwordHash = bcrypt.hashSync(req.body.password, salt);
   try {
     const newUser = await User.create({ ...req.body, passwordHash });
     res.status(201).json(newUser);

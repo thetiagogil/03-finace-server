@@ -1,5 +1,5 @@
 module.exports = (app) => {
-  app.use((res) => {
+  app.use((req, res) => {
     // FOR WHEN THE PAGE IS NOT AVAILABLE
     res.status(404).json({ message: "This route does not exist" });
   });
