@@ -5,7 +5,7 @@ const Data = require("../models/Data.model");
 const User = require("../models/User.model");
 
 // CREATE DATA
-router.post("/", /* isAuthenticated, */ async (req, res) => {
+router.post("/", isAuthenticated, async (req, res) => {
   try {
     const userId = req.body.user;
     const data = { ...req.body, user: userId };
