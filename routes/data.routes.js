@@ -20,7 +20,7 @@ router.post("/", isAuthenticated, async (req, res) => {
   }
 });
 
-// GET DATA BY ID
+// GET DATA BY USER ID
 router.get("/:userId", isAuthenticated, async (req, res) => {
   const { userId } = req.params;
   try {
