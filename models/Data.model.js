@@ -6,8 +6,8 @@ const dataSchema = new Schema({
   category: { type: String, required: true },
   subCategory: { type: String, required: true },
   value: { type: Number, required: true },
-  year: { type: Number, required: true },
-  month: { type: String, required: true },
+  date: { type: Date, required: true },
+  description: String,
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
