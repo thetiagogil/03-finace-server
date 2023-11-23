@@ -6,7 +6,6 @@ const dataSchema = new Schema({
   category: { type: String, required: true },
   subCategory: { type: String, required: true },
   value: { type: Number, required: true },
-  currency: { type: String, required: true },
   date: { type: Date, required: true },
   description: String,
   user: {
